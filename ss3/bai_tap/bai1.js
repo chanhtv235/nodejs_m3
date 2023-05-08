@@ -1,7 +1,7 @@
-axios = require('axios');
+const axios = require('axios');
 function getJSONAPI() {
     return new Promise(function (resolve) {
-        axios.get('http://jsonplaceholder.typicode.com/posts/1')
+        axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
             .then(function (json) {
                 resolve(json.data);
             });
