@@ -1,20 +1,25 @@
 async function findMaxValue(array) {
-    try {
-        let max = array[0];
-        for (const e of array) {
-            if (max < e) {
-                max = e;
+    if (typeof array =="object"){
+        try {
+            let max = array[0];
+            for (const e of array) {
+                if (max < e) {
+                    max = e;
+                }
             }
+            return max;
+        } catch (e) {
+            throw new Error("Error")
         }
-        return max;
-    } catch (e) {
-        throw new Error("I am sad")
+    }else {
+        throw new Error("Sai dữ liệu đầu vào1")
     }
+
 }
 
-async function run() {
+async function run(array) {
     try {
-        let result = await findMaxValue("[1, 2, 3]");
+        let result = await findMaxValue(array);
         console.log(`Kết quả ${result}`)
     } catch (error) {
         console.log(error);
@@ -22,4 +27,4 @@ async function run() {
         console.log("End");
     }
 }
-run();
+run("1111");
