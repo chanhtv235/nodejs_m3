@@ -4,6 +4,7 @@ const qs = require('qs');
 const server = http.createServer(function (request, response) {
     if (request.method == "GET") {
         fs.readFile("./views/todo.html", function (err, data) {
+            console.log(data)
             response.writeHead(200, "Content-Type: text/html", data);
             response.write(data);
             return response.end();
@@ -32,6 +33,7 @@ const server = http.createServer(function (request, response) {
                 if (err) {
                     console.log(err);
                 }
+                console.log(datahtml)
                 datahtml=datahtml.replace("To do list", result.work);
                 response.writeHead(200, {'Content-Type': 'text/html'});
                 response.write(datahtml);
